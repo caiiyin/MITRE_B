@@ -1,0 +1,76 @@
+﻿# 공통 정보
+dataset.yaml
+processing/config/servers.yaml
+
+# 정답 라벨
+labels/inet-firewall/logs/dnsmasq.log
+labels/internal_share/logs/audit/audit.log
+labels/vpn/logs/openvpn.log
+labels/intranet_server/logs/auth.log
+labels/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log.2
+labels/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-error.log.2
+labels/intranet_server/logs/audit/audit.log
+
+# 공격자 기록 (공격 단계 시간표)
+gather/attacker_0/logs/attacks.log
+gather/attacker_0/logs/dnsteal.log
+gather/attacker_0/logs/ait.aecid.attacker.wpdiscuz/sm.log
+
+# 인트라넷 서버 (웹 공격 대상)
+gather/intranet_server/logs/auth.log
+gather/intranet_server/logs/auth.log.1
+gather/intranet_server/logs/syslog.1
+gather/intranet_server/logs/syslog.2
+gather/intranet_server/logs/syslog.3
+gather/intranet_server/logs/syslog.4
+gather/intranet_server/logs/audit/audit.log
+gather/intranet_server/logs/apache2/access.log
+gather/intranet_server/logs/apache2/other_vhosts_access.log
+gather/intranet_server/logs/apache2/error.log.1
+gather/intranet_server/logs/apache2/error.log.2
+gather/intranet_server/logs/apache2/error.log.3
+gather/intranet_server/logs/apache2/error.log.4
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log.1
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log.2
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log.3
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-access.log.4
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-error.log
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-error.log.1
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-error.log.2
+gather/intranet_server/logs/apache2/intranet.smith.russellmitchell.com-error.log.3
+gather/intranet_server/logs/suricata/fast.log
+
+# 내부 파일 공유 서버
+gather/internal_share/logs/auth.log
+gather/internal_share/logs/auth.log.1
+gather/internal_share/logs/syslog.1
+gather/internal_share/logs/syslog.2
+gather/internal_share/logs/syslog.3
+gather/internal_share/logs/syslog.4
+gather/internal_share/logs/audit/audit.log
+gather/internal_share/logs/suricata/fast.log
+
+# VPN 서버
+gather/vpn/logs/auth.log
+gather/vpn/logs/auth.log.1
+gather/vpn/logs/syslog.1
+gather/vpn/logs/syslog.2
+gather/vpn/logs/syslog.3
+gather/vpn/logs/syslog.4
+gather/vpn/logs/audit/audit.log
+gather/vpn/logs/openvpn.log
+gather/vpn/logs/suricata/fast.log
+
+# 인터넷 방화벽 (DNS 기록 포함)
+gather/inet-firewall/logs/auth.log
+gather/inet-firewall/logs/auth.log.1
+gather/inet-firewall/logs/syslog.1
+gather/inet-firewall/logs/syslog.2
+gather/inet-firewall/logs/syslog.3
+gather/inet-firewall/logs/syslog.4
+gather/inet-firewall/logs/kern.log
+gather/inet-firewall/logs/kern.log.1
+gather/inet-firewall/logs/dnsmasq.log
+gather/inet-firewall/logs/audit/audit.log
+gather/inet-firewall/logs/suricata/fast.log

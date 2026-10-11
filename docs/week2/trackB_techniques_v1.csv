@@ -1,0 +1,64 @@
+﻿technique_id,attack_name,attack_tactics,status,label_tactics,datasets,scenarios,rows
+T1003,OS Credential Dumping,Credential Access,ok,Credentials Access,apt29,apt29/day1,2
+T1003.008,/etc/passwd and /etc/shadow,Credential Access,ok,Credential Access,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1005,Data from Local System,Collection,ok,Collection;Collection and Exfiltration;Rapid Collection and Exfiltration,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,4
+T1016,System Network Configuration Discovery,Discovery,ok,Defense Evasion and Discovery;Discovery,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,3
+T1018,Remote System Discovery,Discovery,ok,Discovery;Lateral Movement,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,2
+T1021.002,SMB/Windows Admin Shares,Lateral Movement,ok,Lateral Movement,apt29,apt29/day1,1
+T1021.006,Windows Remote Management,Lateral Movement,ok,Lateral Movement,apt29,apt29/day1,1
+T1027,Obfuscated Files or Information,Stealth,ok,Deploy Stealth Toolkit,apt29,apt29/day1,1
+T1027.002,Software Packing,Stealth,ok,Lateral Movement,apt29,apt29/day1,1
+T1033,System Owner/User Discovery,Discovery,ok,Defense Evasion and Discovery;Discovery,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,2
+T1036.002,Right-to-Left Override,Stealth,ok,Credentials Access;Initial Breach,apt29,apt29/day1,2
+T1041,Exfiltration Over C2 Channel,Exfiltration,ok,Collection;Rapid Collection and Exfiltration,apt29,apt29/day1,2
+T1046,Network Service Discovery,Discovery,ok,Discovery,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1048,Exfiltration Over Alternative Protocol,Exfiltration,ok,Collection and Exfiltration,apt29,apt29/day1,1
+T1048.003,Exfiltration Over Unencrypted Non-C2 Protocol,Exfiltration,ok,Exfiltration,ait_lds_v2,ait_lds_v2/russellmitchell_dns_exfil,1
+T1049,System Network Connections Discovery,Discovery,ok,Discovery,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1056,Input Capture,Collection;Credential Access,ok,Collection and Exfiltration,apt29,apt29/day1,1
+T1057,Process Discovery,Discovery,ok,Defense Evasion and Discovery;Discovery;Lateral Movement,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,4
+T1059.001,PowerShell,Execution,ok,Collection;Defense Evasion and Discovery;Initial Breach,apt29,apt29/day1,3
+T1059.003,Windows Command Shell,Execution,ok,Execution;Initial Breach,apt29;bots_v1,apt29/day1;bots_v1/web_defacement,2
+T1059.004,Unix Shell,Execution,ok,Execution,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1059.005,Visual Basic,Execution,ok,Execution,bots_v1,bots_v1/cerber_ransomware,1
+T1069,Permission Groups Discovery,Discovery,ok,Defense Evasion and Discovery,apt29,apt29/day1,1
+T1069.001,Local Groups,Discovery,ok,Discovery,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1070.004,File Deletion,Stealth,ok,Collection;Defense Evasion and Discovery,apt29,apt29/day1,2
+T1071,Application Layer Protocol,Command and Control,ok,Deploy Stealth Toolkit,apt29,apt29/day1,1
+T1074.001,Local Data Staging,Collection,ok,Collection;Rapid Collection and Exfiltration,apt29,apt29/day1,2
+T1078,Valid Accounts,Stealth;Persistence;Privilege Escalation;Initial Access,ok,Initial Access;Lateral Movement,ait_lds_v2;apt29;bots_v1;lanl,ait_lds_v2/russellmitchell;apt29/day1;bots_v1/web_defacement;lanl/redteam,13
+T1078.003,Local Accounts,Stealth;Persistence;Privilege Escalation;Initial Access,ok,Defense Evasion,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1082,System Information Discovery,Discovery,ok,Defense Evasion and Discovery;Discovery,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,3
+T1083,File and Directory Discovery,Discovery,ok,Collection;Defense Evasion and Discovery;Discovery;Rapid Collection and Exfiltration,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,4
+T1087.001,Local Account,Discovery,ok,Discovery,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1091,Replication Through Removable Media,Lateral Movement;Initial Access,ok,Initial Access,bots_v1,bots_v1/cerber_ransomware,1
+T1095,Non-Application Layer Protocol,Command and Control,ok,Command and Control,bots_v1,bots_v1/cerber_ransomware,1
+T1105,Ingress Tool Transfer,Command and Control,ok,Collection;Command and Control;Deploy Stealth Toolkit,apt29;bots_v1,apt29/day1;bots_v1/cerber_ransomware;bots_v1/web_defacement,4
+T1106,Native API,Execution,ok,Defense Evasion and Discovery,apt29,apt29/day1,1
+T1110.001,Password Guessing,Credential Access,ok,Credential Access,bots_v1,bots_v1/web_defacement,1
+T1110.002,Password Cracking,Credential Access,ok,Credential Access,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1112,Modify Registry,Defense Impairment;Persistence,ok,Deploy Stealth Toolkit,apt29,apt29/day1,1
+T1113,Screen Capture,Collection,ok,Collection and Exfiltration,apt29,apt29/day1,1
+T1115,Clipboard Data,Collection,ok,Collection and Exfiltration,apt29,apt29/day1,1
+T1119,Automated Collection,Collection,ok,Collection;Rapid Collection and Exfiltration,apt29,apt29/day1,2
+T1133,External Remote Services,Persistence;Initial Access,ok,Initial Access,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1140,Deobfuscate/Decode Files or Information,Stealth,ok,Defense Evasion and Discovery,apt29,apt29/day1,1
+T1190,Exploit Public-Facing Application,Initial Access,ok,Initial Access,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1204.002,Malicious File,Execution,ok,Execution;Initial Breach,apt29;bots_v1,apt29/day1;bots_v1/cerber_ransomware,2
+T1486,Data Encrypted for Impact,Impact,ok,Impact,bots_v1,bots_v1/cerber_ransomware,1
+T1491.002,External Defacement,Impact,ok,Impact,bots_v1,bots_v1/web_defacement,1
+T1505.003,Web Shell,Persistence,ok,Persistence,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1518.001,Security Software Discovery,Discovery,ok,Defense Evasion and Discovery,apt29,apt29/day1,1
+T1543.003,Windows Service,Persistence;Privilege Escalation,ok,Persistence,apt29,apt29/day1,1
+T1546.015,Component Object Model Hijacking,Privilege Escalation;Persistence,ok,Deploy Stealth Toolkit,apt29,apt29/day1,1
+T1547.001,Registry Run Keys / Startup Folder,Persistence;Privilege Escalation,ok,Persistence;Persistence & Execution,apt29,apt29/day1,3
+T1548.002,Bypass User Account Control,Privilege Escalation,ok,Deploy Stealth Toolkit,apt29,apt29/day1,1
+T1548.003,Sudo and Sudo Caching,Privilege Escalation,ok,Privilege Escalation,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1552.001,Credentials In Files,Credential Access,ok,Credential Access;Credentials Access,ait_lds_v2;apt29,ait_lds_v2/russellmitchell;apt29/day1,2
+T1552.004,Private Keys,Credential Access,ok,Credentials Access,apt29,apt29/day1,1
+T1560,Archive Collected Data,Collection,ok,Collection;Collection and Exfiltration;Rapid Collection and Exfiltration,apt29,apt29/day1,5
+T1569.002,Service Execution,Execution,ok,Lateral Movement;Persistence & Execution,apt29,apt29/day1,2
+T1571,Non-Standard Port,Command and Control,ok,Command and Control;Initial Breach,apt29;bots_v1,apt29/day1;bots_v1/web_defacement,2
+T1590.002,DNS,Reconnaissance,ok,Reconnaissance,ait_lds_v2,ait_lds_v2/russellmitchell,1
+T1595.002,Vulnerability Scanning,Reconnaissance,ok,Reconnaissance,ait_lds_v2;bots_v1,ait_lds_v2/russellmitchell;bots_v1/web_defacement,2
+T1595.003,Wordlist Scanning,Reconnaissance,ok,Reconnaissance,ait_lds_v2,ait_lds_v2/russellmitchell,1

@@ -1,0 +1,42 @@
+# ===== 원본 데이터 (공개 주소에서 다시 받음, README에 주소 기록) =====
+data/
+# 혹시 다른 폴더에 둔 원본·압축 파일
+*.gz
+*.zip
+*.tgz
+*.7z
+# ATT&CK STIX 원본 (약 50MB, 주소와 sha256은 공동 기준 문서에)
+enterprise-attack*.json
+
+# ===== 파서 출력 (용량 큼, 코드로 다시 만듦) =====
+ocsf/
+!ocsf/**/sample*.jsonl
+!ocsf/**/golden*.jsonl
+
+# ===== 중간 산출물 =====
+labels/lanl_redteam_matches.csv
+labels/raw_ref_check_sample.csv
+*.tmp
+*.bak
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# ===== 비밀 정보 (10주차 Slack Webhook 등) =====
+.env
+*.env
+secrets*
+
+# ===== 에디터·OS =====
+.vscode/
+.idea/
+~$*
+.~lock*
+Thumbs.db
+desktop.ini
+.DS_Store

@@ -1,0 +1,11 @@
+technique,technique_v19,tactics_v19,구분,trackB_datasets,log_type,ocsf_class,files,events,rules,sources
+T1059.001,T1059.001,execution,필수,apt29,Windows Sysmon,Process Activity,44,70958,66,PowerShell:30 | Sysmon:13 | WinEventLog:MSExch:1
+T1003.001,T1003.001,credential-access,필수,"부모 T1003(apt29)만, 4주차 확정",Windows Sysmon,Process Activity,4,8040,10,Sysmon:3 | crowdstrike:1
+T1018,T1018,discovery,필수,ait_lds_v2;apt29,Windows Sysmon;PowerShell,Process Activity,4,32160,12,Sysmon:2 | PowerShell:2
+T1021.006,T1021.006,lateral-movement,필수,apt29,Windows Sysmon;PowerShell,Process Activity,8,12004,9,Sysmon:5 | PowerShell:3
+T1548.003,T1548.003,privilege-escalation,필수,ait_lds_v2,Linux Sysmon;auditd,Process Activity,12,120865,12,Sysmon:7 | auditd:5
+T1105,T1105,command-and-control,필수,apt29;bots_v1,Windows Sysmon;Linux Sysmon,Process Activity;Network Activity;File System Activity,10,2909,12,Sysmon:10
+T1059.003,T1059.003,execution,필수,apt29;bots_v1,Windows Sysmon;Windows Security(4688),Process Activity,7,3581,7,Sysmon:5 | Security:1 | PowerShell:1
+T1562.008,T1685.002,defense-impairment,필수,없음(정규화 실증 예외),CloudTrail;ASL,API Activity,16,49,18,cloudtrail:7 | aws_asl:6 | http:github:2
+T1033,T1033,discovery,선택,ait_lds_v2;apt29,Windows Sysmon,Process Activity,7,13750,12,Sysmon:5 | PowerShell:1 | auditd:1
+T1547.001,T1547.001,"persistence,privilege-escalation",선택,apt29,Windows Sysmon,"Process Activity(주);레지스트리 계열(보조, 확인 필요)",2,6307,2,Sysmon:2

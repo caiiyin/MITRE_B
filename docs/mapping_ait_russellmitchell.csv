@@ -1,0 +1,24 @@
+﻿key,hostname,ipv4,fqdn,groups,username
+attacker_0,attacker-0,192.168.230.122,,attacker internet,
+vpn,vpn,172.19.131.174,vpn.smith.russellmitchell.com vpn.dmz.smith.russellmitchell.com,dmz dnat servers,
+intranet_server,intranet-server,10.143.2.4,intranet.smith.russellmitchell.com,beatservers intranet servers,
+internal_share,internal-share,10.143.0.103,share.intranet.smith.russellmitchell.com,beatservers intranet servers share,
+monitoring,monitoring,10.143.0.35,monitoring.intranet.smith.russellmitchell.com,intranet servers,
+inet-firewall,inet-firewall,172.19.128.1 192.168.230.4 10.143.0.1,gateway.smith.russellmitchell.com smith.russellmitchell.com gateway.dmz.smith.russellmitchell.com gateway.intranet.smith.russellmitchell.com,dnsservers firewall servers,
+inet-dns,inet-dns,192.168.231.254,dns.russellmitchell.com,dnsservers internet,
+webserver,webserver,172.19.130.68,proxy.smith.russellmitchell.com,dmz dnat servers,
+cloud_share,cloud-share,172.19.130.106,cloud.dmz.smith.russellmitchell.com,dmz proxied servers,
+mail,mail,172.19.130.4,mailserver.smith.russellmitchell.com mail.dmz.smith.russellmitchell.com,dmz dnat mailserver proxied servers,
+morris_mail,morris-mail,192.168.231.164,mailserver.morris.russellmitchell.com,ext_mail internet mailserver,
+davey_mail,davey-mail,192.168.231.56,smtp.davey.russellmitchell.com,ext_mail internet mailserver,
+internal_employee_0,internal-employee-0,10.143.1.78,employee00.intranet.smith.russellmitchell.com,employee internal_employee intranet,mmorgan
+internal_employee_1,internal-employee-1,10.143.2.91,employee01.intranet.smith.russellmitchell.com,employee internal_employee intranet,dellis
+internal_employee_2,internal-employee-2,10.143.2.25,employee02.intranet.smith.russellmitchell.com,employee internal_employee intranet,tstevenson
+internal_employee_3,internal-employee-3,10.143.3.65,employee03.intranet.smith.russellmitchell.com,employee internal_employee intranet,rblake
+remote_employee_0,remote-employee-0,192.168.231.127,,employee internet remote_employee,ahayes
+remote_employee_1,remote-employee-1,192.168.230.95,,employee internet remote_employee,twhite
+remote_employee_2,remote-employee-2,192.168.230.165,,employee internet remote_employee,jhall
+ext_user_0,ext-user-0,192.168.231.75,,ext_user internet,
+ext_user_1,ext-user-1,192.168.231.180,,ext_user internet,
+ext_user_2,ext-user-2,192.168.231.68,,ext_user internet,
+vpn_session_jhall_attacker,attacker-0 via vpn,10.9.0.10,,vpn session 2022-01-24T03:01:00Z~04:42:05Z (outer IP 192.168.230.122),jhall

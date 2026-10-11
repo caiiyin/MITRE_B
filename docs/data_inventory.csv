@@ -1,0 +1,17 @@
+데이터셋,로그 소스,원본 이벤트 수,보관 이벤트 수,자른 기준,보관 용량
+APT29,Day1 호스트 로그,196081,196081,Day1만 보관(압축 상태),13.3MB
+APT29,Day1 Zeek,2140,2140,Day1만 보관,1.2MB
+BOTS v1,iis (웹 서버 접근 로그),22615,22615,sourcetype 선택 보관(시간 구간은 3주차에 자를 예정),(용량)MB
+BOTS v1,suricata (IDS),3563643,3563643,sourcetype 선택 보관(시간 구간은 3주차에 자를 예정),(용량)MB
+BOTS v1,WinEventLog:Security (Windows 보안 로그),14218920,14218920,sourcetype 선택 보관(시간 구간은 3주차에 자를 예정),(용량)MB
+BOTS v1,Sysmon,830389,830389,sourcetype 선택 보관(시간 구간은 3주차에 자를 예정),(용량)MB
+AIT-LDS v2,russellmitchell intranet_server,미집계,(19,106줄),라벨 있는 서버의 텍스트 로그만,
+AIT-LDS v2,russellmitchell internal_share,미집계,(1,310줄),라벨 있는 서버의 텍스트 로그만,
+AIT-LDS v2,russellmitchell vpn,미집계,(8,932줄),라벨 있는 서버의 텍스트 로그만,
+AIT-LDS v2,russellmitchell inet-firewall,미집계,(285,224줄),라벨 있는 서버의 텍스트 로그만,
+AIT-LDS v2,russellmitchell attacker_0,미집계,(20,618줄),공격자 시간표 3개 파일만,
+AIT-LDS v2,russellmitchell labels,미집계,(61,813줄),정답 라벨 전체,(53.2)MB
+LANL,auth,1051430459,507202666,레드팀 기간 ±1일 (64485~2643447),(3465.1)MB
+LANL,proc,426045096,203276844,레드팀 기간 ±1일 (64485~2643447),1082.6MB
+LANL,dns,40821591,6072630,레드팀 기간 ±1일 (64485~2643447),(26.2 MB)MB
+LANL,redteam,(redteam 줄 수),(redteam 줄 수),전체 보관,(0 MB)MB
