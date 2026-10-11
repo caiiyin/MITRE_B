@@ -10,7 +10,9 @@
 | 주차 | 내용 | 상태 |
 | --- | --- | --- |
 | 1주차 | 데이터 확보, 필요한 구간만 잘라 보관, 이벤트 수 집계 | 완료 |
-| 2주차 | 데이터셋별 정답 타임라인 작성, 트랙 A에 기법 목록 전달 | 진행 중 (APT29 Day1 단계별 시각 찾는 중) |
+| 2주차 | 데이터셋별 정답 타임라인 작성, 트랙 A에 기법 목록 전달 | 완료 (APT29 Day1 단계별 시각은 4주차에 보완) |
+| 3주차 | OCSF 매핑 규칙 확정(팀원 1과 공동), 대응표 작성, 이벤트 단위 정답 생성 | 완료 |
+| 4주차 | APT29 보완, Zeek·LANL 파서, 신호 형식 확정 | 진행 중 |
 
 ## 실행 환경
 
@@ -33,16 +35,20 @@ C:\dev\Mitre\
 │   ├── apt29\
 │   ├── lanl\
 │   └── ait_lds\russellmitchell\
-├── labels\                데이터셋별 정답 타임라인 CSV
+├── labels\                정답 타임라인(단계 단위)과 이벤트 단위 정답
 ├── scripts\
 │   ├── data_tools.py      1주차: 다운로드·자르기·집계 도구
-│   └── week2_tools.py     2주차: 정답 타임라인 작성 도구
+│   ├── week2_tools.py     2주차: 정답 타임라인 작성 도구
+│   └── (3주차 도구)        검색·필드 확인·라벨링 스크립트 (아래 표)
 └── docs\
     ├── data_inventory.csv         데이터셋별 원본·보관 이벤트 수
     ├── data_cut_log.md            무엇을 어떤 기준으로 보관·제외했는지
     ├── ait_keep_list.txt          AIT-LDS에서 꺼낸 63개 파일 목록
     ├── mapping_ait_russellmitchell.csv   AIT 서버·IP·사용자 대응표
-    └── week2\                     2주차 결과 (레드팀 요약, 기법 목록 등)
+    ├── mapping_linux_web.md       대응표: Suricata·IIS·AIT(Apache, auth.log, auditd)
+    ├── mapping_zeek_lanl.md       대응표: LANL·Zeek
+    ├── week2\                     2주차 결과 (레드팀 요약, 기법 목록 등)
+    └── week3\                     소스별 필드 목록 (fields_*.md)
 ```
 
 원본 데이터는 용량이 커서 저장소에 포함하지 않는다. 아래 "데이터 받기"의 명령으로 같은 결과를 다시 만들 수 있다.
@@ -172,6 +178,16 @@ zip 자리에 `https://` 주소를 넣으면 전체를 받지 않고 필요한 �
 | `fill-ids <타임라인.csv>` | 예전 ATT&CK 이름을 보고 technique_id 자동 채우기 |
 | `timeline-template <csv> --dataset <이름> --scenario <이름>` | 빈 정답 타임라인 양식 만들기 |
 
+### 3주차 도구 (scripts 폴더)
+
+| 파일 | 하는 일 |
+| --- | --- |
+| `time_range.py`, `fields.py`, `list_times.py` | 검색어로 건수·시각 범위, 주요 필드, 구간 안 기록 보기 |
+| `field_inventory.py`, `inspect_ait.py`, `inspect_zeek.py`, `check_lanl.py` | 소스별 원본 필드 목록 뽑기 |
+| `label_events_bots.py` | BOTS 타임라인 → 이벤트 단위 정답(`bots_v1_events.csv`) |
+| `match_lanl_redteam.py`, `dedupe_lanl_matches.py` | LANL redteam → auth 줄 연결(`lanl_redteam_labels.csv`) |
+| `check_fill.py`, `check_sysmon_time.py` | 빈 값 비율, Sysmon 시각 점검 |
+
 ## 정답 타임라인 (labels 폴더)
 
 모든 타임라인은 같은 열을 쓴다.
@@ -184,19 +200,34 @@ start_utc, end_utc, actor_user, actor_ip, host, evidence_source, evidence_query,
 | 파일 | 시나리오 | 근거 자료 |
 | --- | --- | --- |
 | `apt29_day1_timeline.csv` | APT29 Day1 (25단계) | 에뮬레이션 계획 `apt29.xlsx` |
-| `bots_v1_web_defacement_timeline.csv` | 웹사이트 변조 | Splunk 공식 BOTS v1 문제·정답 |
-| `bots_v1_cerber_timeline.csv` | Cerber 랜섬웨어 | Splunk 공식 BOTS v1 문제·정답 |
+| `bots_v1_web_defacement_timeline.csv` | 웹사이트 변조 (7단계) | 공개 풀이 + 원본 로그로 확인 |
+| `bots_v1_cerber_timeline.csv` | Cerber 랜섬웨어 (6단계) | 공개 풀이 + 원본 로그로 확인 |
 | `lanl_redteam_timeline.csv` | 레드팀 탈취 계정 상위 10개 | `redteam.txt` |
 | `ait_russellmitchell_timeline.csv` | VPN 침투 → 웹셸 → 권한 상승, DNS 유출(별도 시나리오) | `attacks.log`, `dnsteal.log`, `openvpn.log` |
 
-데이터셋별 기법을 모은 `docs/week2/trackB_techniques.csv`를 트랙 A에 전달했다.
+이벤트 단위 정답 (열: `raw_ref, time_utc, source, label`, label = `시나리오:단계:기법`):
+
+| 파일 | 내용 |
+| --- | --- |
+| `bots_v1_events.csv` | BOTS 81,585줄. `time_utc`는 Splunk `_time`+6h 참고값 |
+| `lanl_redteam_labels.csv` | LANL redteam 715개 조합 중 701개를 auth 줄과 연결 |
+| (AIT) | 데이터셋의 `labels` 폴더를 그대로 사용 (줄 번호 1부터) |
+
+`raw_ref` = `데이터 폴더 기준 경로:줄번호` (1부터, 압축 푼 기준, `\n`으로만 나눔). 기법 목록 `docs/week2/trackB_techniques.csv`는 트랙 A에 전달했다(ATT&CK v19.2).
+
+## 공통 규칙 (팀원 1과 합의)
+
+- ATT&CK v19.2, OCSF 1.1.0. 기법은 정확히 같은 번호만 인정
+- 시간은 모두 UTC epoch ms. 빈 값 표기(`-`, `?`, `(none)`, `(null)`, `NULL SID`)는 null
+- 라벨은 raw_ref로 붙이고, 연관분석 시간창은 파서가 원본에서 읽은 시각을 쓴다
+- 자세한 내용: 팀원 1의 `docs/ocsf_mapping_rules.md`, `docs/signal_format.md`
 
 ## 데이터를 다룰 때 알아 둘 점
 
 - **APT29의 Zeek와 호스트 로그는 서로 다른 시간에 기록되었다.** (Day1 Zeek 2020-04-30, 호스트 2020-05-02) 그래서 APT29는 호스트 로그 안에서만 연관분석하고, 호스트-네트워크 연관분석은 BOTS v1과 AIT-LDS로 검증한다.
-- **BOTS v1 파일은 시간순이 아니다.** 파서에서 정렬해야 한다. 시각은 소스마다 기준이 다르다: iis·Security·Sysmon 원본은 UTC, `_time`은 MDT(UTC-6), Suricata는 `-0600`으로 표기되어 있으나 실제 UTC일 가능성이 있어 3주차에 확인한다.
+- **BOTS v1 파일은 시간순이 아니다.** `_time`은 MDT(UTC−6). Suricata의 `-0600`은 실제 시간대(3주차 확인). IIS는 UTC. Sysmon은 TimeCreated를 쓴다(네트워크 연결의 UtcTime은 약 4만 줄에서 9시간 틀림). Security는 원문 시간대가 호스트마다 달라 `_time`+6h를 쓴다.
 - **AIT-LDS는 모든 서버가 UTC다.** 공격자는 원격 직원 jhall의 VPN 인증서로 접속했고(외부 IP 192.168.230.122, VPN 내부 IP 10.9.0.10), DNS 유출은 VPN 공격과 별개로 internal-share에서 일어났다. dnsmasq 로그는 연도가 없어 2022를 붙여야 한다.
-- **LANL 시각은 실제 날짜가 아니라** 데이터 시작부터 센 초다.
+- **LANL 시각은 실제 날짜가 아니라** 데이터 시작부터 센 초다. 초 × 1000으로 넣고 `time_is_relative`로 표시한다.
 
 ## 참고 자료
 
